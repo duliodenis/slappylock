@@ -12,6 +12,8 @@ class GameScene: SKScene {
     
     var lock = SKShapeNode()
     var needle = SKShapeNode()
+    var dot = SKShapeNode()
+    
     var path = UIBezierPath()
     let zeroAngle: CGFloat = 0.0
     
@@ -33,14 +35,15 @@ class GameScene: SKScene {
         lock = SKShapeNode(path: path.CGPath)
         lock.strokeColor = SKColor.grayColor()
         lock.lineWidth = 40.0
-        self.addChild(lock)
+        addChild(lock)
         
         needle = SKShapeNode(rectOfSize: CGSize(width: 40.0 - 7.0, height: 7.0), cornerRadius: 3.5)
         needle.fillColor = SKColor.whiteColor()
-        needle.position = CGPoint(x: self.frame.width/2, y: self.frame.height/2 + 120.0)
+        needle.position = CGPoint(x: frame.width/2, y: frame.height/2 + 120.0)
         needle.zRotation = 3.14 / 2
         needle.zPosition = 2.0
-        self.addChild(needle)
+        addChild(needle)
+        addDot()
     }
 
     
@@ -60,18 +63,28 @@ class GameScene: SKScene {
     // MARK: Movement Methods
     
     func runClockwise() {
-        let dx = needle.position.x - frame.width / 2
-        let dy = needle.position.y - frame.height / 2
+        path = makePath(getRadian())
         
-        let radian = atan2(dy, dx)
-        
-        path = makePath(radian)
         let run = SKAction.followPath(path.CGPath, asOffset: false, orientToPath: true, speed: 200)
         needle.runAction(SKAction.repeatActionForever(run).reversedAction())
     }
     
     
-    // MARK: UIBezierPath Convenience Method
+    func addDot() {
+        dot = SKShapeNode(circleOfRadius: 15.0)
+        dot.fillColor = SKColor(red: 31.0/255.0, green: 150.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        dot.strokeColor = SKColor.clearColor()
+        
+        let radian = getRadian()
+        let tempAngle = CGFloat.random(radian - 1.0, max: radian - 2.5)
+        let tempPath = makePath(tempAngle)
+        
+        dot.position = tempPath.currentPoint
+        addChild(dot)
+    }
+    
+    
+    // MARK: UIBezierPath and Radian Convenience Functions
     
     func makePath(angle: CGFloat) -> UIBezierPath {
         return UIBezierPath(arcCenter: CGPoint(x: frame.width/2, y: frame.height/2),
@@ -79,5 +92,13 @@ class GameScene: SKScene {
                             startAngle: angle,
                             endAngle: angle + CGFloat(M_PI * 2),
                             clockwise: true)
+    }
+    
+    
+    func getRadian() -> CGFloat {
+        let dx = needle.position.x - frame.width / 2
+        let dy = needle.position.y - frame.height / 2
+        
+        return atan2(dy, dx)
     }
 }
