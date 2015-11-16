@@ -12,19 +12,23 @@ class GameScene: SKScene {
     
     var lock = SKShapeNode()
     var needle = SKShapeNode()
-    
     var path = UIBezierPath()
-    
     let zeroAngle: CGFloat = 0.0
+    
+    var started = false
+    
+    
+    //MARK: View Lifecycle
     
     override func didMoveToView(view: SKView) {
         layoutGame()
     }
     
+    
     func layoutGame() {
         backgroundColor = SKColor.whiteColor()
         
-        path = UIBezierPath(arcCenter: CGPoint(x: self.frame.width/2, y: self.frame.height/2), radius: 120, startAngle: zeroAngle, endAngle: zeroAngle + CGFloat(M_PI * 2), clockwise: true)
+        path = makePath(zeroAngle)
         
         lock = SKShapeNode(path: path.CGPath)
         lock.strokeColor = SKColor.grayColor()
@@ -38,12 +42,42 @@ class GameScene: SKScene {
         needle.zPosition = 2.0
         self.addChild(needle)
     }
+
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
+        if !started {
+            runClockwise()
+            started = true
+        }
     }
+
    
     override func update(currentTime: CFTimeInterval) {
         
+    }
+    
+    
+    // MARK: Movement Methods
+    
+    func runClockwise() {
+        let dx = needle.position.x - frame.width / 2
+        let dy = needle.position.y - frame.height / 2
+        
+        let radian = atan2(dy, dx)
+        
+        path = makePath(radian)
+        let run = SKAction.followPath(path.CGPath, asOffset: false, orientToPath: true, speed: 200)
+        needle.runAction(SKAction.repeatActionForever(run).reversedAction())
+    }
+    
+    
+    // MARK: UIBezierPath Convenience Method
+    
+    func makePath(angle: CGFloat) -> UIBezierPath {
+        return UIBezierPath(arcCenter: CGPoint(x: frame.width/2, y: frame.height/2),
+                            radius: 120,
+                            startAngle: angle,
+                            endAngle: angle + CGFloat(M_PI * 2),
+                            clockwise: true)
     }
 }
