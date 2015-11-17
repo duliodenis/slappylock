@@ -17,6 +17,8 @@ class GameScene: SKScene {
     var path = UIBezierPath()
     let zeroAngle: CGFloat = 0.0
     
+    var clockwise = Bool()
+    
     var started = false
     var touched = false
     
@@ -57,6 +59,7 @@ class GameScene: SKScene {
         
         scene?.runAction(SKAction.sequence([actionRed, actionBack]), completion: { () -> Void in
             self.removeAllChildren()
+            self.clockwise = false
             self.layoutGame()
         })
     }
@@ -64,8 +67,11 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !started {
-            runClockwise()
+            clockwise = true
+            runClockwise(clockwise)
             started = true
+        } else {
+            dotTouched()
         }
     }
 
@@ -87,11 +93,15 @@ class GameScene: SKScene {
     
     // MARK: Movement Methods
     
-    func runClockwise() {
+    func runClockwise(clockwise: Bool) {
         path = makePath(getRadian())
         
         let run = SKAction.followPath(path.CGPath, asOffset: false, orientToPath: true, speed: 200)
-        needle.runAction(SKAction.repeatActionForever(run).reversedAction())
+        if clockwise {
+            needle.runAction(SKAction.repeatActionForever(run).reversedAction())
+        } else {
+            needle.runAction(SKAction.repeatActionForever(run))
+        }
     }
     
     
@@ -101,13 +111,38 @@ class GameScene: SKScene {
         dot.strokeColor = SKColor.clearColor()
         
         let radian = getRadian()
-        let tempAngle = CGFloat.random(radian - 1.0, max: radian - 2.5)
-        let tempPath = makePath(tempAngle)
+        let tempAngle: CGFloat
         
+        if clockwise {
+            tempAngle = CGFloat.random(radian + 1.0, max: radian + 2.5)
+        } else {
+            tempAngle = CGFloat.random(radian - 1.0, max: radian - 2.5)
+        }
+        
+        let tempPath = makePath(tempAngle)
         dot.position = tempPath.currentPoint
         addChild(dot)
     }
     
+    
+    func dotTouched() {
+        if touched {
+            touched = false
+            dot.removeFromParent()
+            addDot()
+            if clockwise {
+                clockwise = false
+                runClockwise(clockwise)
+            } else {
+                clockwise = true
+                runClockwise(clockwise)
+            }
+        } else {
+            started = false
+            touched = false
+            gameOver()
+        }
+    }
     
     // MARK: UIBezierPath and Radian Convenience Functions
     
