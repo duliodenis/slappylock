@@ -18,6 +18,7 @@ class GameScene: SKScene {
     let zeroAngle: CGFloat = 0.0
     
     var started = false
+    var touched = false
     
     
     //MARK: View Lifecycle
@@ -45,6 +46,20 @@ class GameScene: SKScene {
         addChild(needle)
         addDot()
     }
+    
+    
+    func gameOver() {
+        needle.removeFromParent()
+        
+        // Failed Indication
+        let actionRed  = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.25)
+        let actionBack = SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1.0, duration: 0.25)
+        
+        scene?.runAction(SKAction.sequence([actionRed, actionBack]), completion: { () -> Void in
+            self.removeAllChildren()
+            self.layoutGame()
+        })
+    }
 
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -56,7 +71,17 @@ class GameScene: SKScene {
 
    
     override func update(currentTime: CFTimeInterval) {
-        
+        if started {
+            if needle.intersectsNode(dot) {
+                touched = true
+            } else {
+                if touched {
+                    started = false
+                    touched = false
+                    gameOver()
+                }
+            }
+        }
     }
     
     
