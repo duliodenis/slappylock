@@ -22,6 +22,10 @@ class GameScene: SKScene {
     var started = false
     var touched = false
     
+    // Level Support
+    var level = 1
+    var dots  = 0
+    
     
     //MARK: View Lifecycle
     
@@ -50,16 +54,23 @@ class GameScene: SKScene {
     }
     
     
-    func gameOver() {
+    func gameOver(over: Bool) {
         needle.removeFromParent()
         
-        // Failed Indication
-        let actionRed  = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.25)
-        let actionBack = SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1.0, duration: 0.25)
+        // Flash Indication
+        let startFlash: SKAction
+        if over {   // flash red
+            startFlash  = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.25)
+        } else {    // flash green
+            startFlash  = SKAction.colorizeWithColor(UIColor.greenColor(), colorBlendFactor: 1.0, duration: 0.25)
+        }
+        let endFlash = SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1.0, duration: 0.25)
         
-        scene?.runAction(SKAction.sequence([actionRed, actionBack]), completion: { () -> Void in
+        scene?.runAction(SKAction.sequence([startFlash, endFlash]), completion: { () -> Void in
             self.removeAllChildren()
             self.clockwise = false
+            self.dots = 0
+            if !over { self.level++ }
             self.layoutGame()
         })
     }
@@ -68,7 +79,7 @@ class GameScene: SKScene {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !started {
             clockwise = true
-            runClockwise(clockwise)
+            runClockwise()
             started = true
         } else {
             dotTouched()
@@ -84,7 +95,7 @@ class GameScene: SKScene {
                 if touched {
                     started = false
                     touched = false
-                    gameOver()
+                    gameOver(true)
                 }
             }
         }
@@ -93,7 +104,7 @@ class GameScene: SKScene {
     
     // MARK: Movement Methods
     
-    func runClockwise(clockwise: Bool) {
+    func runClockwise() {
         path = makePath(getRadian())
         
         let run = SKAction.followPath(path.CGPath, asOffset: false, orientToPath: true, speed: 200)
@@ -128,19 +139,28 @@ class GameScene: SKScene {
     func dotTouched() {
         if touched {
             touched = false
+            
+            // Increment dots and check to see if user has met level
+            dots++
+            if dots >= level {
+                started = false // reset
+                gameOver(false) // level completed but game is not over
+                return          // return to continue
+            }
+            
             dot.removeFromParent()
             addDot()
             if clockwise {
                 clockwise = false
-                runClockwise(clockwise)
+                runClockwise()
             } else {
                 clockwise = true
-                runClockwise(clockwise)
+                runClockwise()
             }
         } else {
             started = false
             touched = false
-            gameOver()
+            gameOver(true)
         }
     }
     
