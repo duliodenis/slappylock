@@ -26,6 +26,10 @@ class GameScene: SKScene {
     var level = 1
     var dots  = 0
     
+    // UI
+    var levelLabel = SKLabelNode()
+    var scoreLabel = SKLabelNode()
+    
     
     //MARK: View Lifecycle
     
@@ -35,7 +39,7 @@ class GameScene: SKScene {
     
     
     func layoutGame() {
-        backgroundColor = SKColor.whiteColor()
+        backgroundColor = SKColor(red: 26.0/255.0, green: 188.0/255.0, blue: 156.0/255.0, alpha: 1.0)
         
         path = makePath(zeroAngle)
         
@@ -51,6 +55,7 @@ class GameScene: SKScene {
         needle.zPosition = 2.0
         addChild(needle)
         addDot()
+        addLabels()
     }
     
     
@@ -58,13 +63,16 @@ class GameScene: SKScene {
         needle.removeFromParent()
         
         // Flash Indication
-        let startFlash: SKAction
-        if over {   // flash red
-            startFlash  = SKAction.colorizeWithColor(UIColor.redColor(), colorBlendFactor: 1.0, duration: 0.25)
+        var color: UIColor
+        if over {   // flash gray
+            color = UIColor(red: 149.0/255.0, green: 165.0/255.0, blue: 166.0/255.0, alpha: 1.0)
+            scoreLabel.text = "Missed"
         } else {    // flash green
-            startFlash  = SKAction.colorizeWithColor(UIColor.greenColor(), colorBlendFactor: 1.0, duration: 0.25)
+            color = UIColor(red: 46.0/255.0, green: 204.0/255.0, blue: 113.0/255.0, alpha: 1.0)
+            scoreLabel.text = "Complete"
         }
-        let endFlash = SKAction.colorizeWithColor(UIColor.whiteColor(), colorBlendFactor: 1.0, duration: 0.25)
+        let startFlash  = SKAction.colorizeWithColor(color, colorBlendFactor: 1.0, duration: 0.25)
+        let endFlash = SKAction.waitForDuration(0.5)
         
         scene?.runAction(SKAction.sequence([startFlash, endFlash]), completion: { () -> Void in
             self.removeAllChildren()
@@ -78,6 +86,7 @@ class GameScene: SKScene {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if !started {
+            calculateScore()
             clockwise = true
             runClockwise()
             started = true
@@ -140,8 +149,9 @@ class GameScene: SKScene {
         if touched {
             touched = false
             
-            // Increment dots and check to see if user has met level
+            // Increment dots, calculate score and check to see if user has met level
             dots++
+            calculateScore()
             if dots >= level {
                 started = false // reset
                 gameOver(false) // level completed but game is not over
@@ -180,5 +190,27 @@ class GameScene: SKScene {
         let dy = needle.position.y - frame.height / 2
         
         return atan2(dy, dx)
+    }
+    
+    
+    // MARK: UI Functions
+    
+    func addLabels() {
+        levelLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        levelLabel.position = CGPoint(x: frame.width/2, y: frame.height/2 + frame.height/3)
+        levelLabel.fontColor = SKColor(red: 236.0/255.0, green: 240.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        levelLabel.text = "Level \(level)"
+        
+        scoreLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        scoreLabel.position = CGPoint(x: frame.width/2, y: frame.height/2)
+        scoreLabel.fontColor = SKColor(red: 236.0/255.0, green: 240.0/255.0, blue: 241.0/255.0, alpha: 1.0)
+        scoreLabel.text = "Tap!"
+        
+        addChild(levelLabel)
+        addChild(scoreLabel)
+    }
+    
+    func calculateScore() {
+        scoreLabel.text = "\(level - dots)"
     }
 }
