@@ -10,6 +10,8 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
+    
+    var continueMode: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,10 @@ class GameViewController: UIViewController {
         /* Set the scale mode to scale to fit the window */
         scene.scaleMode = .AspectFill
         
+        if let continueIsTrue = continueMode {
+            scene.continueMode = continueIsTrue
+        }
+        
         skView.presentScene(scene)
     }
 
@@ -32,4 +38,7 @@ class GameViewController: UIViewController {
         return true
     }
 
+    @IBAction func MenuButton(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }

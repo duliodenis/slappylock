@@ -13,6 +13,8 @@
 		6C56CCF41BED0F8100B1EAF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C56CCF21BED0F8100B1EAF0 /* Main.storyboard */; };
 		6C56CCF61BED0F8100B1EAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C56CCF51BED0F8100B1EAF0 /* Assets.xcassets */; };
 		6C56CCF91BED0F8100B1EAF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C56CCF71BED0F8100B1EAF0 /* LaunchScreen.storyboard */; };
+		6C5969EB1BFCCF310007F402 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5969EA1BFCCF310007F402 /* MenuVC.swift */; };
+		6C5969EF1BFCE3600007F402 /* Bender-Inline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */; };
 		6C5F19CA1BFA36D00080A49A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F19C91BFA36D00080A49A /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		6C56CCF51BED0F8100B1EAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C56CCF81BED0F8100B1EAF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C56CCFA1BED0F8100B1EAF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C5969EA1BFCCF310007F402 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
+		6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bender-Inline.otf"; sourceTree = "<group>"; };
 		6C5F19C91BFA36D00080A49A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,16 +62,26 @@
 		6C56CCE91BED0F8100B1EAF0 /* Slappy Lock */ = {
 			isa = PBXGroup;
 			children = (
+				6C5969F41BFCFCE70007F402 /* View */,
 				6C56CCEA1BED0F8100B1EAF0 /* AppDelegate.swift */,
-				6C56CCEE1BED0F8100B1EAF0 /* GameScene.swift */,
+				6C5969EA1BFCCF310007F402 /* MenuVC.swift */,
 				6C56CCF01BED0F8100B1EAF0 /* GameViewController.swift */,
+				6C56CCEE1BED0F8100B1EAF0 /* GameScene.swift */,
 				6C5F19C91BFA36D00080A49A /* Extensions.swift */,
-				6C56CCF21BED0F8100B1EAF0 /* Main.storyboard */,
+				6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */,
 				6C56CCF51BED0F8100B1EAF0 /* Assets.xcassets */,
-				6C56CCF71BED0F8100B1EAF0 /* LaunchScreen.storyboard */,
 				6C56CCFA1BED0F8100B1EAF0 /* Info.plist */,
 			);
 			path = "Slappy Lock";
+			sourceTree = "<group>";
+		};
+		6C5969F41BFCFCE70007F402 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6C56CCF21BED0F8100B1EAF0 /* Main.storyboard */,
+				6C56CCF71BED0F8100B1EAF0 /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +144,7 @@
 			files = (
 				6C56CCF91BED0F8100B1EAF0 /* LaunchScreen.storyboard in Resources */,
 				6C56CCF61BED0F8100B1EAF0 /* Assets.xcassets in Resources */,
+				6C5969EF1BFCE3600007F402 /* Bender-Inline.otf in Resources */,
 				6C56CCF41BED0F8100B1EAF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +160,7 @@
 				6C56CCF11BED0F8100B1EAF0 /* GameViewController.swift in Sources */,
 				6C56CCEB1BED0F8100B1EAF0 /* AppDelegate.swift in Sources */,
 				6C5F19CA1BFA36D00080A49A /* Extensions.swift in Sources */,
+				6C5969EB1BFCCF310007F402 /* MenuVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +274,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Slappy Lock/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.ddapps.Slappy-Lock";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -269,6 +286,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Slappy Lock/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "co.ddapps.Slappy-Lock";
 				PRODUCT_NAME = "$(TARGET_NAME)";

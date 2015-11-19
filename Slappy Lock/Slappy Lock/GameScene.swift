@@ -30,16 +30,28 @@ class GameScene: SKScene {
     var levelLabel = SKLabelNode()
     var scoreLabel = SKLabelNode()
     
+    // Game Mode
+    var continueMode = Bool()
+    var maxLevel = NSUserDefaults.standardUserDefaults().integerForKey("maxLevel")
+    
     
     //MARK: View Lifecycle
     
     override func didMoveToView(view: SKView) {
+        if continueMode {
+            level = maxLevel
+        }
+        
         layoutGame()
     }
     
     
     func layoutGame() {
         backgroundColor = SKColor(red: 26.0/255.0, green: 188.0/255.0, blue: 156.0/255.0, alpha: 1.0)
+        
+        if level > maxLevel {
+            NSUserDefaults.standardUserDefaults().setInteger(level, forKey: "maxLevel")
+        }
         
         path = makePath(zeroAngle)
         
@@ -56,11 +68,13 @@ class GameScene: SKScene {
         addChild(needle)
         addDot()
         addLabels()
+        userInteractionEnabled = true
     }
     
     
     func gameOver(over: Bool) {
         needle.removeFromParent()
+        userInteractionEnabled = false
         
         // Flash Indication
         var color: UIColor
@@ -98,6 +112,17 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         if started {
+            if (CGRectIntersectsRect(needle.frame, dot.frame)) {
+                touched = true
+            } else {
+                if touched {
+                    started = false
+                    touched = false
+                    gameOver(true)
+                }
+            }
+            
+            /* intersectsNode does not work on iOS 8.x device
             if needle.intersectsNode(dot) {
                 touched = true
             } else {
@@ -107,6 +132,7 @@ class GameScene: SKScene {
                     gameOver(true)
                 }
             }
+            */
         }
     }
     
@@ -196,15 +222,15 @@ class GameScene: SKScene {
     // MARK: UI Functions
     
     func addLabels() {
-        levelLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        levelLabel = SKLabelNode(fontNamed: "Bender-Inline")
         levelLabel.position = CGPoint(x: frame.width/2, y: frame.height/2 + frame.height/3)
         levelLabel.fontColor = SKColor(red: 236.0/255.0, green: 240.0/255.0, blue: 241.0/255.0, alpha: 1.0)
         levelLabel.text = "Level \(level)"
         
-        scoreLabel = SKLabelNode(fontNamed: "AvenirNext-Bold")
+        scoreLabel = SKLabelNode(fontNamed: "Bender-Inline")
         scoreLabel.position = CGPoint(x: frame.width/2, y: frame.height/2)
         scoreLabel.fontColor = SKColor(red: 236.0/255.0, green: 240.0/255.0, blue: 241.0/255.0, alpha: 1.0)
-        scoreLabel.text = "Tap!"
+        scoreLabel.text = "Tap to start"
         
         addChild(levelLabel)
         addChild(scoreLabel)
