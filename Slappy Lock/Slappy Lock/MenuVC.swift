@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import iAd
 
 class MenuVC: UIViewController {
+    
+    
+    // MARK: View Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        canDisplayBannerAds = true
+    }
     
     
     // MARK: Button Actions

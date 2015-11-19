@@ -8,6 +8,8 @@
 
 import UIKit
 import SpriteKit
+import iAd
+
 
 class GameViewController: UIViewController, GameDelegate {
     
@@ -26,7 +28,11 @@ class GameViewController: UIViewController, GameDelegate {
         
         // initially hide the share button
         shareButton.hidden = true
-
+        
+        // iAd Initialization
+        UIViewController.prepareInterstitialAds()
+        interstitialPresentationPolicy = .Manual
+        
         let scene = GameScene(size: view.bounds.size)
         
         // set the scene's game delegate
@@ -93,6 +99,8 @@ class GameViewController: UIViewController, GameDelegate {
     func gameFinished() {
         snapPicture()
         shareButton.hidden = false
+        
+        requestInterstitialAdPresentation()
     }
     
 }

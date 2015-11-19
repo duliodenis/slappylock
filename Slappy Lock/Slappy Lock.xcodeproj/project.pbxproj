@@ -16,6 +16,7 @@
 		6C5969EB1BFCCF310007F402 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5969EA1BFCCF310007F402 /* MenuVC.swift */; };
 		6C5969EF1BFCE3600007F402 /* Bender-Inline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */; };
 		6C5F19CA1BFA36D00080A49A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F19C91BFA36D00080A49A /* Extensions.swift */; };
+		6C60ED411BFE837C0057E342 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED401BFE837C0057E342 /* iAd.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		6C5969EA1BFCCF310007F402 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bender-Inline.otf"; sourceTree = "<group>"; };
 		6C5F19C91BFA36D00080A49A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6C60ED401BFE837C0057E342 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C60ED411BFE837C0057E342 /* iAd.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +49,7 @@
 		6C56CCDE1BED0F8100B1EAF0 = {
 			isa = PBXGroup;
 			children = (
+				6C60ED401BFE837C0057E342 /* iAd.framework */,
 				6C56CCE91BED0F8100B1EAF0 /* Slappy Lock */,
 				6C56CCE81BED0F8100B1EAF0 /* Products */,
 			);
