@@ -9,6 +9,7 @@
             <string>Bender-Inline</string>
             <string>Bender-Inline</string>
             <string>Bender-Inline</string>
+            <string>Bender-Inline</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -90,10 +91,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeV-qE-OPI">
-                                <rect key="frame" x="150" y="530" width="300" height="50"/>
+                                <rect key="frame" x="20" y="530" width="120" height="50"/>
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="CQq-35-rE0"/>
+                                    <constraint firstAttribute="width" constant="120" id="CQq-35-rE0"/>
                                     <constraint firstAttribute="height" constant="50" id="T0a-0H-PU8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Bender-Inline" family="Bender" pointSize="35"/>
@@ -101,24 +102,50 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="MenuButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="HVB-9e-pob"/>
+                                    <action selector="menuAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MJs-aD-rYw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DT-m9-lbx">
+                                <rect key="frame" x="460" y="530" width="120" height="50"/>
+                                <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="TTJ-MS-aWP"/>
+                                    <constraint firstAttribute="height" constant="50" id="lxS-g0-SIP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Bender-Inline" family="Bender" pointSize="35"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="2Pd-GA-RZi"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8DT-m9-lbx" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="3Q5-xx-lsE"/>
                             <constraint firstItem="qeV-qE-OPI" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="UDb-sT-UJM"/>
+                            <constraint firstAttribute="trailing" secondItem="8DT-m9-lbx" secondAttribute="trailing" constant="20" id="c8p-lA-UFp"/>
                             <constraint firstItem="qeV-qE-OPI" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="150" id="ddt-dv-o0L"/>
                             <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="qeV-qE-OPI" secondAttribute="bottom" constant="20" id="eyG-cg-kYa"/>
                             <constraint firstAttribute="trailing" secondItem="qeV-qE-OPI" secondAttribute="trailing" constant="150" id="gGY-wo-FGb"/>
+                            <constraint firstItem="qeV-qE-OPI" firstAttribute="top" secondItem="8DT-m9-lbx" secondAttribute="bottom" constant="20" id="gWm-gm-y0I"/>
+                            <constraint firstItem="qHh-Mt-9TT" firstAttribute="top" secondItem="8DT-m9-lbx" secondAttribute="bottom" constant="20" id="lW3-1z-nNM"/>
+                            <constraint firstItem="qeV-qE-OPI" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" constant="20" id="xHK-Vu-IYG"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="UDb-sT-UJM"/>
                                 <exclude reference="ddt-dv-o0L"/>
                                 <exclude reference="gGY-wo-FGb"/>
+                                <exclude reference="gWm-gm-y0I"/>
+                                <exclude reference="3Q5-xx-lsE"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="shareButton" destination="8DT-m9-lbx" id="YAw-EN-btd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

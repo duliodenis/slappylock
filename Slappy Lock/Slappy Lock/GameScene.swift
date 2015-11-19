@@ -8,7 +8,17 @@
 
 import SpriteKit
 
+
+// The Game Delegate Protocol
+protocol GameDelegate {
+    func gameStarted()
+    func gameFinished()
+}
+
+
 class GameScene: SKScene {
+    
+    var gameDelegate: GameDelegate?
     
     var lock = SKShapeNode()
     var needle = SKShapeNode()
@@ -94,6 +104,7 @@ class GameScene: SKScene {
             self.dots = 0
             if !over { self.level++ }
             self.layoutGame()
+            self.gameDelegate?.gameFinished()
         })
     }
 
@@ -112,6 +123,8 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         if started {
+            gameDelegate?.gameStarted()
+            
             if (CGRectIntersectsRect(needle.frame, dot.frame)) {
                 touched = true
             } else {
