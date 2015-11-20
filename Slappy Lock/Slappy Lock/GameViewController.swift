@@ -9,10 +9,13 @@
 import UIKit
 import SpriteKit
 import iAd
+import AVFoundation
 
 
 class GameViewController: UIViewController, GameDelegate {
     
+    var click: AVAudioPlayer!
+        
     var continueMode: Bool?
     
     // For Social Sharing
@@ -32,6 +35,9 @@ class GameViewController: UIViewController, GameDelegate {
         // iAd Initialization
         UIViewController.prepareInterstitialAds()
         interstitialPresentationPolicy = .Manual
+        
+        // Sound Initialization
+        addSound()
         
         let scene = GameScene(size: view.bounds.size)
         
@@ -63,12 +69,14 @@ class GameViewController: UIViewController, GameDelegate {
     // MARK: Action Functions
     
     @IBAction func menuAction(sender: AnyObject) {
+        click.play()
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     
     @IBAction func shareAction(sender: AnyObject) {
+        click.play()
         if let image = screenShot {
             share(image)
         }
@@ -90,7 +98,7 @@ class GameViewController: UIViewController, GameDelegate {
     }
     
     
-    // Game Delegate Functions
+    // MARK: Game Delegate Functions
     
     func gameStarted() {
         shareButton.hidden = true
@@ -101,6 +109,18 @@ class GameViewController: UIViewController, GameDelegate {
         shareButton.hidden = false
         
         requestInterstitialAdPresentation()
+    }
+    
+    // MARK: AVAudioPlayer Utility Function
+    
+    func addSound() {
+        // AudioPlayer for Button Click
+        do {
+            try click = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("click", ofType: "wav")!))
+            click.prepareToPlay()
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
     }
     
 }

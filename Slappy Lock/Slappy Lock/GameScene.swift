@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AVFoundation
 
 
 // The Game Delegate Protocol
@@ -40,6 +41,12 @@ class GameScene: SKScene {
     var levelLabel = SKLabelNode()
     var scoreLabel = SKLabelNode()
     
+    // Sound Effects
+    var click: AVAudioPlayer!
+    var win: AVAudioPlayer!
+    var fail: AVAudioPlayer!
+    var pop: AVAudioPlayer!
+    
     // Game Mode
     var continueMode = Bool()
     var maxLevel = NSUserDefaults.standardUserDefaults().integerForKey("maxLevel")
@@ -66,18 +73,19 @@ class GameScene: SKScene {
         path = makePath(zeroAngle)
         
         lock = SKShapeNode(path: path.CGPath)
-        lock.strokeColor = SKColor.grayColor()
+        lock.strokeColor = SKColor.yellowColor()
         lock.lineWidth = 40.0
         addChild(lock)
         
         needle = SKShapeNode(rectOfSize: CGSize(width: 40.0 - 7.0, height: 7.0), cornerRadius: 3.5)
-        needle.fillColor = SKColor.whiteColor()
+        needle.fillColor = SKColor.blackColor()
         needle.position = CGPoint(x: frame.width/2, y: frame.height/2 + 120.0)
         needle.zRotation = 3.14 / 2
         needle.zPosition = 2.0
         addChild(needle)
         addDot()
         addLabels()
+        addSound()
         userInteractionEnabled = true
     }
     
@@ -91,9 +99,11 @@ class GameScene: SKScene {
         if over {   // flash gray
             color = UIColor(red: 149.0/255.0, green: 165.0/255.0, blue: 166.0/255.0, alpha: 1.0)
             scoreLabel.text = "Missed"
+            fail.play()
         } else {    // flash green
             color = UIColor(red: 46.0/255.0, green: 204.0/255.0, blue: 113.0/255.0, alpha: 1.0)
             scoreLabel.text = "Complete"
+            win.play()
         }
         let startFlash  = SKAction.colorizeWithColor(color, colorBlendFactor: 1.0, duration: 0.25)
         let endFlash = SKAction.waitForDuration(0.5)
@@ -134,18 +144,6 @@ class GameScene: SKScene {
                     gameOver(true)
                 }
             }
-            
-            /* intersectsNode does not work on iOS 8.x device
-            if needle.intersectsNode(dot) {
-                touched = true
-            } else {
-                if touched {
-                    started = false
-                    touched = false
-                    gameOver(true)
-                }
-            }
-            */
         }
     }
     
@@ -186,6 +184,7 @@ class GameScene: SKScene {
     
     func dotTouched() {
         if touched {
+            pop.play()
             touched = false
             
             // Increment dots, calculate score and check to see if user has met level
@@ -251,5 +250,23 @@ class GameScene: SKScene {
     
     func calculateScore() {
         scoreLabel.text = "\(level - dots)"
+    }
+    
+    
+    // MARK: Audio Function
+    
+    func addSound() {
+        do {
+            try click = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("click", ofType: "wav")!))
+            try win = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("win", ofType: "wav")!))
+            try fail = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fail", ofType: "wav")!))
+            try pop = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("pop", ofType: "wav")!))
+            click.prepareToPlay()
+            win.prepareToPlay()
+            fail.prepareToPlay()
+            pop.prepareToPlay()
+        } catch let error as NSError {
+            print(error.debugDescription)
+        }
     }
 }

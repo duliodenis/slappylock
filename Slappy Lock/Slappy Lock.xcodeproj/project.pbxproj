@@ -13,10 +13,16 @@
 		6C56CCF41BED0F8100B1EAF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C56CCF21BED0F8100B1EAF0 /* Main.storyboard */; };
 		6C56CCF61BED0F8100B1EAF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C56CCF51BED0F8100B1EAF0 /* Assets.xcassets */; };
 		6C56CCF91BED0F8100B1EAF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C56CCF71BED0F8100B1EAF0 /* LaunchScreen.storyboard */; };
+		6C57A94E1BFF8502002ACA17 /* fail.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6C57A94B1BFF8502002ACA17 /* fail.wav */; };
+		6C57A94F1BFF8502002ACA17 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6C57A94C1BFF8502002ACA17 /* win.wav */; };
+		6C57A9501BFF8502002ACA17 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6C57A94D1BFF8502002ACA17 /* pop.wav */; };
+		6C57A9521BFF854B002ACA17 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6C57A9511BFF854B002ACA17 /* click.wav */; };
 		6C5969EB1BFCCF310007F402 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5969EA1BFCCF310007F402 /* MenuVC.swift */; };
 		6C5969EF1BFCE3600007F402 /* Bender-Inline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */; };
 		6C5F19CA1BFA36D00080A49A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F19C91BFA36D00080A49A /* Extensions.swift */; };
 		6C60ED411BFE837C0057E342 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED401BFE837C0057E342 /* iAd.framework */; };
+		6C60ED461BFE8A040057E342 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED441BFE8A040057E342 /* Fabric.framework */; };
+		6C60ED471BFE8A040057E342 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED451BFE8A040057E342 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +34,16 @@
 		6C56CCF51BED0F8100B1EAF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C56CCF81BED0F8100B1EAF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C56CCFA1BED0F8100B1EAF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C57A94B1BFF8502002ACA17 /* fail.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = fail.wav; sourceTree = "<group>"; };
+		6C57A94C1BFF8502002ACA17 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
+		6C57A94D1BFF8502002ACA17 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
+		6C57A9511BFF854B002ACA17 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		6C5969EA1BFCCF310007F402 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bender-Inline.otf"; sourceTree = "<group>"; };
 		6C5F19C91BFA36D00080A49A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6C60ED401BFE837C0057E342 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		6C60ED441BFE8A040057E342 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		6C60ED451BFE8A040057E342 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +52,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C60ED411BFE837C0057E342 /* iAd.framework in Frameworks */,
+				6C60ED471BFE8A040057E342 /* Crashlytics.framework in Frameworks */,
+				6C60ED461BFE8A040057E342 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,8 +63,9 @@
 		6C56CCDE1BED0F8100B1EAF0 = {
 			isa = PBXGroup;
 			children = (
-				6C60ED401BFE837C0057E342 /* iAd.framework */,
 				6C56CCE91BED0F8100B1EAF0 /* Slappy Lock */,
+				6C57A94A1BFF84EE002ACA17 /* Resources */,
+				6C60ED421BFE89270057E342 /* Frameworks */,
 				6C56CCE81BED0F8100B1EAF0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,10 +87,22 @@
 				6C56CCF01BED0F8100B1EAF0 /* GameViewController.swift */,
 				6C56CCEE1BED0F8100B1EAF0 /* GameScene.swift */,
 				6C5F19C91BFA36D00080A49A /* Extensions.swift */,
-				6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */,
 				6C56CCF51BED0F8100B1EAF0 /* Assets.xcassets */,
 				6C56CCFA1BED0F8100B1EAF0 /* Info.plist */,
 			);
+			path = "Slappy Lock";
+			sourceTree = "<group>";
+		};
+		6C57A94A1BFF84EE002ACA17 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6C57A9511BFF854B002ACA17 /* click.wav */,
+				6C57A94B1BFF8502002ACA17 /* fail.wav */,
+				6C57A94C1BFF8502002ACA17 /* win.wav */,
+				6C57A94D1BFF8502002ACA17 /* pop.wav */,
+				6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */,
+			);
+			name = Resources;
 			path = "Slappy Lock";
 			sourceTree = "<group>";
 		};
@@ -88,6 +115,17 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		6C60ED421BFE89270057E342 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C60ED441BFE8A040057E342 /* Fabric.framework */,
+				6C60ED451BFE8A040057E342 /* Crashlytics.framework */,
+				6C60ED401BFE837C0057E342 /* iAd.framework */,
+			);
+			name = Frameworks;
+			path = "Slappy Lock";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,6 +136,7 @@
 				6C56CCE31BED0F8100B1EAF0 /* Sources */,
 				6C56CCE41BED0F8100B1EAF0 /* Frameworks */,
 				6C56CCE51BED0F8100B1EAF0 /* Resources */,
+				6C60ED431BFE89B80057E342 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -146,14 +185,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C57A94E1BFF8502002ACA17 /* fail.wav in Resources */,
 				6C56CCF91BED0F8100B1EAF0 /* LaunchScreen.storyboard in Resources */,
 				6C56CCF61BED0F8100B1EAF0 /* Assets.xcassets in Resources */,
+				6C57A9521BFF854B002ACA17 /* click.wav in Resources */,
+				6C57A9501BFF8502002ACA17 /* pop.wav in Resources */,
+				6C57A94F1BFF8502002ACA17 /* win.wav in Resources */,
 				6C5969EF1BFCE3600007F402 /* Bender-Inline.otf in Resources */,
 				6C56CCF41BED0F8100B1EAF0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C60ED431BFE89B80057E342 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6C56CCE31BED0F8100B1EAF0 /* Sources */ = {
@@ -277,6 +336,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Slappy Lock/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -289,6 +352,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Slappy Lock/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
