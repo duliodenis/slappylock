@@ -1,5 +1,5 @@
 # Slappy Lock
-A [Pop the Lock](goo.gl/PVxhkX) iOS 9 Clone written in Swift 2 using SpriteKit.
+A [Pop the Lock](https://goo.gl/PVxhkX) iOS 9 Clone written in Swift 2 using SpriteKit.
 
 ![](https://github.com/duliodenis/slappylock/blob/master/art/screenshot/slappylock10.gif)
 
