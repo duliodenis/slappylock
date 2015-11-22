@@ -9,16 +9,20 @@
 import UIKit
 import iAd
 import AVFoundation
+import GameKit
 
 
-class MenuVC: UIViewController {
+class MenuVC: UIViewController, GKGameCenterControllerDelegate {
     
     var click: AVAudioPlayer!
+    
     
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        authenticateLocalPlayer()
         
         addSound()
         canDisplayBannerAds = true
@@ -42,6 +46,12 @@ class MenuVC: UIViewController {
     }
     
     
+    @IBAction func leaderboardButton(sender: AnyObject) {
+        click.play()
+        showLeaderboard()
+    }
+    
+    
     // MARK: AVAudioPlayer Utility Function
     
     func addSound() {
@@ -52,5 +62,37 @@ class MenuVC: UIViewController {
         } catch let error as NSError {
             print(error.debugDescription)
         }
+    }
+    
+    
+    // MARK: Game Center Functions
+    
+    func authenticateLocalPlayer() {
+        
+        let localPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {(viewController, error) -> Void in
+            
+            if (viewController != nil) {
+                self.presentViewController(viewController!, animated: true, completion: nil)
+            }
+                
+            else {
+                print((GKLocalPlayer.localPlayer().authenticated))
+            }
+        }
+    }
+    
+    
+    func showLeaderboard() {
+        let vc = self.view?.window?.rootViewController
+        let gc = GKGameCenterViewController()
+        gc.gameCenterDelegate = self
+        vc?.presentViewController(gc, animated: true, completion: nil)
+    }
+    
+    
+    func gameCenterViewControllerDidFinish(gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismissViewControllerAnimated(true, completion: nil)
     }
 }

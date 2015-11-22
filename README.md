@@ -1,7 +1,9 @@
 # Slappy Lock
-A [Pop the Lock](https://itunes.apple.com/us/app/pop-the-lock/id979100082) iOS 9 Clone written in Swift 2 using SpriteKit.
+A [Pop the Lock](goo.gl/PVxhkX) iOS 9 Clone written in Swift 2 using SpriteKit.
 
-![](https://github.com/duliodenis/slappylock/blob/master/art/screenshot/slappylock9.gif)
+![](https://github.com/duliodenis/slappylock/blob/master/art/screenshot/slappylock10.gif)
+
+The App provides a Game Center Leaderboard and uses iAd.
 
 ### Licensing
 Slappy Lock is licensed under [the MIT License](https://github.com/duliodenis/slappylock/blob/master/LICENSE).

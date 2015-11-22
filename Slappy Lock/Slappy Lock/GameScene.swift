@@ -8,6 +8,7 @@
 
 import SpriteKit
 import AVFoundation
+import GameKit
 
 
 // The Game Delegate Protocol
@@ -68,6 +69,7 @@ class GameScene: SKScene {
         
         if level > maxLevel {
             NSUserDefaults.standardUserDefaults().setInteger(level, forKey: "maxLevel")
+            saveHighLevelToLeaderboard(level) // save to Game Center Leaderboard
         }
         
         path = makePath(zeroAngle)
@@ -164,7 +166,6 @@ class GameScene: SKScene {
     
     func addDot() {
         dot = SKShapeNode(circleOfRadius: 15.0)
-        //dot.fillColor = SKColor(red: 31.0/255.0, green: 150.0/255.0, blue: 255.0/255.0, alpha: 1.0)
         dot.fillColor = SKColor(red: 210.0/255.0, green:37.0/255.0, blue: 37.0/255.0, alpha: 1.0)
         dot.strokeColor = SKColor.clearColor()
         
@@ -268,6 +269,26 @@ class GameScene: SKScene {
             pop.prepareToPlay()
         } catch let error as NSError {
             print(error.debugDescription)
+        }
+    }
+    
+    
+    // MARK: Game Center Leaderboard Save High Score Function
+    
+    func saveHighLevelToLeaderboard(level:Int) {
+        
+        //check if user is signed in
+        if GKLocalPlayer.localPlayer().authenticated {
+            
+            let levelReporter = GKScore(leaderboardIdentifier: "YOUR-LEADERBOARD-ID")
+            
+            levelReporter.value = Int64(level)
+            
+            let levelArray: [GKScore] = [levelReporter]
+            
+            GKScore.reportScores(levelArray, withCompletionHandler: {(error : NSError?) -> Void in
+                if error != nil { print(error.debugDescription) }
+            })
         }
     }
 }

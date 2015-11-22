@@ -10,6 +10,7 @@
             <string>Bender-Inline</string>
             <string>Bender-Inline</string>
             <string>Bender-Inline</string>
+            <string>Bender-Inline</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -62,11 +63,28 @@
                                     <constraint firstAttribute="height" constant="128" id="qTr-ST-eq7"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIi-Ie-J1R" customClass="RoundedButton" customModule="Slappy_Lock" customModuleProvider="target">
+                                <rect key="frame" x="150" y="415" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.25882352939999997" green="0.63921568630000003" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="HtF-TR-38g"/>
+                                    <constraint firstAttribute="height" constant="50" id="mQy-th-cFN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Bender-Inline" family="Bender" pointSize="35"/>
+                                <state key="normal" title="Leaderboard">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leaderboardButton:" destination="rfm-rq-ss8" eventType="touchUpInside" id="q1L-AJ-ySm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="GIi-Ie-J1R" firstAttribute="centerX" secondItem="89f-wQ-Inf" secondAttribute="centerX" id="8c5-uk-KBW"/>
                             <constraint firstItem="lGt-A9-GZe" firstAttribute="centerX" secondItem="89f-wQ-Inf" secondAttribute="centerX" id="B1T-iJ-P8Z"/>
                             <constraint firstItem="eJD-1V-6GL" firstAttribute="top" secondItem="mzl-Ic-Bbx" secondAttribute="bottom" constant="8" id="EPH-UN-n9M"/>
+                            <constraint firstItem="GIi-Ie-J1R" firstAttribute="top" secondItem="lGt-A9-GZe" secondAttribute="bottom" constant="20" id="QNc-LZ-lTQ"/>
                             <constraint firstItem="OJF-Nb-q65" firstAttribute="centerX" secondItem="89f-wQ-Inf" secondAttribute="centerX" id="blL-FW-sGm"/>
                             <constraint firstItem="lGt-A9-GZe" firstAttribute="top" secondItem="OJF-Nb-q65" secondAttribute="bottom" constant="20" id="dyd-fm-P6w"/>
                             <constraint firstItem="eJD-1V-6GL" firstAttribute="centerX" secondItem="89f-wQ-Inf" secondAttribute="centerX" id="gi4-Vx-L5X"/>
