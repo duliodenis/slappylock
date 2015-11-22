@@ -25,7 +25,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-Nb-q65">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJF-Nb-q65" customClass="RoundedButton" customModule="Slappy_Lock" customModuleProvider="target">
                                 <rect key="frame" x="150" y="275" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.63921568630000003" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -40,7 +40,7 @@
                                     <action selector="playButton:" destination="rfm-rq-ss8" eventType="touchUpInside" id="SBI-FR-cyW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGt-A9-GZe">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGt-A9-GZe" customClass="RoundedButton" customModule="Slappy_Lock" customModuleProvider="target">
                                 <rect key="frame" x="150" y="345" width="300" height="50"/>
                                 <color key="backgroundColor" red="0.25882352939999997" green="0.63921568630000003" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -90,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeV-qE-OPI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeV-qE-OPI" customClass="RoundedButton" customModule="Slappy_Lock" customModuleProvider="target">
                                 <rect key="frame" x="20" y="530" width="120" height="50"/>
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -105,7 +105,7 @@
                                     <action selector="menuAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="MJs-aD-rYw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DT-m9-lbx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DT-m9-lbx" customClass="RoundedButton" customModule="Slappy_Lock" customModuleProvider="target">
                                 <rect key="frame" x="460" y="530" width="120" height="50"/>
                                 <color key="backgroundColor" red="0.18039215689999999" green="0.52941176469999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>

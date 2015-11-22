@@ -73,7 +73,7 @@ class GameScene: SKScene {
         path = makePath(zeroAngle)
         
         lock = SKShapeNode(path: path.CGPath)
-        lock.strokeColor = SKColor.yellowColor()
+        lock.strokeColor = SKColor(red: 46.0/255.0, green: 135.0/255.0, blue: 195.0/255.0, alpha: 1.0)
         lock.lineWidth = 40.0
         addChild(lock)
         
@@ -164,7 +164,8 @@ class GameScene: SKScene {
     
     func addDot() {
         dot = SKShapeNode(circleOfRadius: 15.0)
-        dot.fillColor = SKColor(red: 31.0/255.0, green: 150.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        //dot.fillColor = SKColor(red: 31.0/255.0, green: 150.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+        dot.fillColor = SKColor(red: 210.0/255.0, green:37.0/255.0, blue: 37.0/255.0, alpha: 1.0)
         dot.strokeColor = SKColor.clearColor()
         
         let radian = getRadian()
