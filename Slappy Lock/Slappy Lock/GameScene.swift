@@ -14,7 +14,8 @@ import GameKit
 // The Game Delegate Protocol
 protocol GameDelegate {
     func gameStarted()
-    func gameFinished()
+    func gameFinished(over: Bool)
+    //   parameter indicates if the game series is over or we are continuing to the next level
 }
 
 
@@ -116,7 +117,7 @@ class GameScene: SKScene {
             self.dots = 0
             if !over { self.level++ }
             self.layoutGame()
-            self.gameDelegate?.gameFinished()
+            self.gameDelegate?.gameFinished(over)
         })
     }
 

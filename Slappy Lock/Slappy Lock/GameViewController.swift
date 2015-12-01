@@ -94,6 +94,8 @@ class GameViewController: UIViewController, GameDelegate {
     
     func share(image: UIImage) {
         let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        // iPad Crash Fix: specify an anchor point for the presentation of the popover on iPad
+        activityVC.popoverPresentationController?.sourceView = self.view
         presentViewController(activityVC, animated: true, completion: nil)
     }
     
@@ -104,11 +106,11 @@ class GameViewController: UIViewController, GameDelegate {
         shareButton.hidden = true
     }
     
-    func gameFinished() {
+    func gameFinished(over: Bool) {
         snapPicture()
         shareButton.hidden = false
         
-        requestInterstitialAdPresentation()
+        if over { requestInterstitialAdPresentation() }
     }
     
     // MARK: AVAudioPlayer Utility Function
