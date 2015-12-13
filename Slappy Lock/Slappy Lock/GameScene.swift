@@ -115,7 +115,13 @@ class GameScene: SKScene {
             self.removeAllChildren()
             self.clockwise = false
             self.dots = 0
-            if !over { self.level++ }
+            if !over {
+                // every 10 levels do a celebration animation
+                if self.level % 10 == 0 {
+                    self.celebrationAnimation()
+                }
+                self.level++
+            }
             self.layoutGame()
             self.gameDelegate?.gameFinished(over)
         })
@@ -150,6 +156,34 @@ class GameScene: SKScene {
         }
     }
     
+    
+    // MARK: Animation Methods
+    func celebrationAnimation() {
+        var actions = Array<SKAction>()
+        actions.append(SKAction.playSoundFileNamed(chooseCheer(), waitForCompletion: false))
+        actions.append(SKAction.waitForDuration(NSTimeInterval(3.5)))
+        actions.append(SKAction.removeFromParent())
+        
+        let path = NSBundle.mainBundle().pathForResource("Celebration", ofType: "sks")
+        let celebration = NSKeyedUnarchiver.unarchiveObjectWithFile(path!) as! SKEmitterNode
+        
+        celebration.position = CGPointMake(self.size.width/2, self.size.height)
+        celebration.name = "celebration"
+        celebration.targetNode = self.scene
+        addChild(celebration)
+        
+        let sequence = SKAction.sequence(actions)
+        scene?.runAction(sequence,completion: { () -> Void in
+            celebration.removeFromParent()
+            })
+    }
+    
+    func chooseCheer() -> String {
+        let cheer = ["woohoo.mp3", "yell.mp3", "yay.mp3", "yes.mp3"]
+        let randomCheer = Int(arc4random_uniform(4))
+        return cheer[randomCheer]
+    }
+
     
     // MARK: Movement Methods
     

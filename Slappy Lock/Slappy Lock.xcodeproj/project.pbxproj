@@ -24,6 +24,8 @@
 		6C59C8ED1C1DDE8E001A5F15 /* yay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8E91C1DDE8E001A5F15 /* yay.mp3 */; };
 		6C59C8EE1C1DDE8E001A5F15 /* yell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8EA1C1DDE8E001A5F15 /* yell.mp3 */; };
 		6C59C8EF1C1DDE8E001A5F15 /* woohoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8EB1C1DDE8E001A5F15 /* woohoo.mp3 */; };
+		6C59C8F31C1DE067001A5F15 /* Celebration.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8F11C1DE067001A5F15 /* Celebration.sks */; };
+		6C59C8F41C1DE067001A5F15 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8F21C1DE067001A5F15 /* spark.png */; };
 		6C5F19CA1BFA36D00080A49A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F19C91BFA36D00080A49A /* Extensions.swift */; };
 		6C60ED411BFE837C0057E342 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED401BFE837C0057E342 /* iAd.framework */; };
 		6C60ED461BFE8A040057E342 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED441BFE8A040057E342 /* Fabric.framework */; };
@@ -50,6 +52,8 @@
 		6C59C8E91C1DDE8E001A5F15 /* yay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yay.mp3; sourceTree = "<group>"; };
 		6C59C8EA1C1DDE8E001A5F15 /* yell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yell.mp3; sourceTree = "<group>"; };
 		6C59C8EB1C1DDE8E001A5F15 /* woohoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = woohoo.mp3; sourceTree = "<group>"; };
+		6C59C8F11C1DE067001A5F15 /* Celebration.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Celebration.sks; sourceTree = "<group>"; };
+		6C59C8F21C1DE067001A5F15 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		6C5F19C91BFA36D00080A49A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6C60ED401BFE837C0057E342 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		6C60ED441BFE8A040057E342 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
@@ -134,6 +138,8 @@
 		6C59C8F01C1DDE9C001A5F15 /* Effects */ = {
 			isa = PBXGroup;
 			children = (
+				6C59C8F11C1DE067001A5F15 /* Celebration.sks */,
+				6C59C8F21C1DE067001A5F15 /* spark.png */,
 			);
 			name = Effects;
 			sourceTree = "<group>";
@@ -211,7 +217,9 @@
 				6C57A94E1BFF8502002ACA17 /* fail.wav in Resources */,
 				6C56CCF91BED0F8100B1EAF0 /* LaunchScreen.storyboard in Resources */,
 				6C59C8EE1C1DDE8E001A5F15 /* yell.mp3 in Resources */,
+				6C59C8F41C1DE067001A5F15 /* spark.png in Resources */,
 				6C59C8EF1C1DDE8E001A5F15 /* woohoo.mp3 in Resources */,
+				6C59C8F31C1DE067001A5F15 /* Celebration.sks in Resources */,
 				6C59C8ED1C1DDE8E001A5F15 /* yay.mp3 in Resources */,
 				6C56CCF61BED0F8100B1EAF0 /* Assets.xcassets in Resources */,
 				6C57A9521BFF854B002ACA17 /* click.wav in Resources */,
