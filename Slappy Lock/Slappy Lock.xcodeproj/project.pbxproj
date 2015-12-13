@@ -20,6 +20,10 @@
 		6C57A9521BFF854B002ACA17 /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6C57A9511BFF854B002ACA17 /* click.wav */; };
 		6C5969EB1BFCCF310007F402 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5969EA1BFCCF310007F402 /* MenuVC.swift */; };
 		6C5969EF1BFCE3600007F402 /* Bender-Inline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */; };
+		6C59C8EC1C1DDE8E001A5F15 /* yes.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8E81C1DDE8E001A5F15 /* yes.mp3 */; };
+		6C59C8ED1C1DDE8E001A5F15 /* yay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8E91C1DDE8E001A5F15 /* yay.mp3 */; };
+		6C59C8EE1C1DDE8E001A5F15 /* yell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8EA1C1DDE8E001A5F15 /* yell.mp3 */; };
+		6C59C8EF1C1DDE8E001A5F15 /* woohoo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C59C8EB1C1DDE8E001A5F15 /* woohoo.mp3 */; };
 		6C5F19CA1BFA36D00080A49A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5F19C91BFA36D00080A49A /* Extensions.swift */; };
 		6C60ED411BFE837C0057E342 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED401BFE837C0057E342 /* iAd.framework */; };
 		6C60ED461BFE8A040057E342 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C60ED441BFE8A040057E342 /* Fabric.framework */; };
@@ -42,6 +46,10 @@
 		6C57A9511BFF854B002ACA17 /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		6C5969EA1BFCCF310007F402 /* MenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		6C5969EE1BFCE3600007F402 /* Bender-Inline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bender-Inline.otf"; sourceTree = "<group>"; };
+		6C59C8E81C1DDE8E001A5F15 /* yes.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yes.mp3; sourceTree = "<group>"; };
+		6C59C8E91C1DDE8E001A5F15 /* yay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yay.mp3; sourceTree = "<group>"; };
+		6C59C8EA1C1DDE8E001A5F15 /* yell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yell.mp3; sourceTree = "<group>"; };
+		6C59C8EB1C1DDE8E001A5F15 /* woohoo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = woohoo.mp3; sourceTree = "<group>"; };
 		6C5F19C91BFA36D00080A49A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6C60ED401BFE837C0057E342 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		6C60ED441BFE8A040057E342 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
@@ -83,6 +91,7 @@
 		6C56CCE91BED0F8100B1EAF0 /* Slappy Lock */ = {
 			isa = PBXGroup;
 			children = (
+				6C59C8F01C1DDE9C001A5F15 /* Effects */,
 				6C5969F41BFCFCE70007F402 /* View */,
 				6C56CCEA1BED0F8100B1EAF0 /* AppDelegate.swift */,
 				6C5969EA1BFCCF310007F402 /* MenuVC.swift */,
@@ -99,6 +108,10 @@
 		6C57A94A1BFF84EE002ACA17 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6C59C8E81C1DDE8E001A5F15 /* yes.mp3 */,
+				6C59C8E91C1DDE8E001A5F15 /* yay.mp3 */,
+				6C59C8EA1C1DDE8E001A5F15 /* yell.mp3 */,
+				6C59C8EB1C1DDE8E001A5F15 /* woohoo.mp3 */,
 				6C57A9511BFF854B002ACA17 /* click.wav */,
 				6C57A94B1BFF8502002ACA17 /* fail.wav */,
 				6C57A94C1BFF8502002ACA17 /* win.wav */,
@@ -116,6 +129,13 @@
 				6C56CCF71BED0F8100B1EAF0 /* LaunchScreen.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		6C59C8F01C1DDE9C001A5F15 /* Effects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Effects;
 			sourceTree = "<group>";
 		};
 		6C60ED421BFE89270057E342 /* Frameworks */ = {
@@ -190,10 +210,14 @@
 			files = (
 				6C57A94E1BFF8502002ACA17 /* fail.wav in Resources */,
 				6C56CCF91BED0F8100B1EAF0 /* LaunchScreen.storyboard in Resources */,
+				6C59C8EE1C1DDE8E001A5F15 /* yell.mp3 in Resources */,
+				6C59C8EF1C1DDE8E001A5F15 /* woohoo.mp3 in Resources */,
+				6C59C8ED1C1DDE8E001A5F15 /* yay.mp3 in Resources */,
 				6C56CCF61BED0F8100B1EAF0 /* Assets.xcassets in Resources */,
 				6C57A9521BFF854B002ACA17 /* click.wav in Resources */,
 				6C57A9501BFF8502002ACA17 /* pop.wav in Resources */,
 				6C57A94F1BFF8502002ACA17 /* win.wav in Resources */,
+				6C59C8EC1C1DDE8E001A5F15 /* yes.mp3 in Resources */,
 				6C5969EF1BFCE3600007F402 /* Bender-Inline.otf in Resources */,
 				6C56CCF41BED0F8100B1EAF0 /* Main.storyboard in Resources */,
 			);

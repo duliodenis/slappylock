@@ -167,7 +167,7 @@ class GameScene: SKScene {
     
     func addDot() {
         dot = SKShapeNode(circleOfRadius: 15.0)
-        dot.fillColor = SKColor(red: 210.0/255.0, green:37.0/255.0, blue: 37.0/255.0, alpha: 1.0)
+        dot.fillColor = SKColor(red: 254.0/255.0, green: 87.0/255.0, blue: 87.0/255.0, alpha: 1.0)
         dot.strokeColor = SKColor.clearColor()
         
         let radian = getRadian()
