@@ -65,6 +65,8 @@ class GameScene: SKScene {
     }
     
     
+    //MARK: Game Lifecycle
+    
     func layoutGame() {
         backgroundColor = SKColor(red: 26.0/255.0, green: 188.0/255.0, blue: 156.0/255.0, alpha: 1.0)
         
@@ -158,6 +160,7 @@ class GameScene: SKScene {
     
     
     // MARK: Animation Methods
+    
     func celebrationAnimation() {
         var actions = Array<SKAction>()
         actions.append(SKAction.playSoundFileNamed(chooseCheer(), waitForCompletion: false))
@@ -190,12 +193,20 @@ class GameScene: SKScene {
     func runClockwise() {
         path = makePath(getRadian())
         
-        let run = SKAction.followPath(path.CGPath, asOffset: false, orientToPath: true, speed: 200)
+        let run = SKAction.followPath(path.CGPath, asOffset: false, orientToPath: true, speed: calculateSpeed())
         if clockwise {
             needle.runAction(SKAction.repeatActionForever(run).reversedAction())
         } else {
             needle.runAction(SKAction.repeatActionForever(run))
         }
+    }
+    
+    
+    func calculateSpeed() -> CGFloat {
+        if level > 400 {
+            return 400
+        }
+        return CGFloat(200 + level)
     }
     
     
