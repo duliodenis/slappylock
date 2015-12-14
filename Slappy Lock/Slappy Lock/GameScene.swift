@@ -204,7 +204,7 @@ class GameScene: SKScene {
     
     func calculateSpeed() -> CGFloat {
         if level > 400 {
-            return 400
+            return 600
         }
         return CGFloat(200 + level)
     }
